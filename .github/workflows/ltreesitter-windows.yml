@@ -25,13 +25,9 @@ jobs:
         with:
           repository: 'euclidianAce/ltreesitter'
       - name: 'Build'
-        run: >
-          gcc -shared -o ltreesitter.dll -fPIC
-          -I./include $(pkg-config --cflags tree-sitter) $(pkg-config --cflags lua)
-          csrc/*
-          -Wl,-Bstatic $(pkg-config --libs tree-sitter) $(pkg-config --libs lua) -Wl,-Bdynamic
+        run: gcc -shared -o ltreesitter.dll -O2 -fPIC csrc/*.c -l:liblua.a -l:libtree-sitter.a -lm
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: ltreesitter
-          path: .
+          path: ltreesitter.dll
