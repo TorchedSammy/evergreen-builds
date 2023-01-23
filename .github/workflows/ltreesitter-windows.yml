@@ -27,9 +27,9 @@ jobs:
       - name: 'Build'
         run: >
           gcc -shared -o ltreesitter -fPIC
-            -I./include $(pkg-config --cflags tree-sitter) $(pkg-config --cflags lua)
-            csrc/*
-            $(pkg-config --libs tree-sitter) $(pkg-config --libs lua) -ldl
+          -I./include $(pkg-config --cflags tree-sitter) $(pkg-config --cflags lua)
+          csrc/*
+          $(pkg-config --libs tree-sitter) $(pkg-config --libs lua) -ldl
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
