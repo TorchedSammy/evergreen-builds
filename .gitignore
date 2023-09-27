@@ -1,0 +1,7 @@
+# tree-sitter directories
+tree-sitter-*/
+
+# fake-gyp results
+Makefile
+*.so
+*.dll
